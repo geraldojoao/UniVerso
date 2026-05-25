@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UniVerso, plataforma educativa sobre igualdade, respeito, diversidade e combate ao preconceito.">
+  <meta name="theme-color" content="#070813">
+  <title>UniVerso | Um universo de respeito começa aqui</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/commitments.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu de navegação" aria-modal="true" aria-hidden="true">
+    <button type="button" class="mobile-close" data-menu-close aria-label="Fechar menu">X</button>
+    <a href="#inicio" data-menu-link>Início</a>
+    <a href="#sobre" data-menu-link>Sobre</a>
+    <a href="#temas" data-menu-link>Temas</a>
+    <a href="#materiais" data-menu-link>Materiais</a>
+    <a href="professores.html" data-menu-link>Professores</a>
+    <a href="quiz.html" data-menu-link>Quiz</a>
+    <a href="#contato" data-menu-link>Contato</a>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="UniVerso, início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" fill="#fff"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#fff" stroke-width="1.25" transform="rotate(-22 12 12)"/><circle cx="20" cy="8" r="1.4" fill="#fff"/></svg>
+        </span>
+        <span>Uni<span>Verso</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inicio" aria-current="true">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#temas">Temas</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="professores.html">Professores</a></li>
+        <li><a href="pesquisa.html">Indicadores</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a class="nav-action" href="#contato">Contato</a></li>
+      </ul>
+      <button class="menu-toggle" type="button" data-menu-open aria-label="Abrir menu" aria-controls="mobileNav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="hero-badge">Projeto educacional - Palmas, TO</span>
+          <h1 class="hero-title">
+            <span>Um universo</span>
+            <span>de <span class="gradient-text">respeito</span></span>
+            <span class="gradient-text">começa aqui</span>
+          </h1>
+          <p>Conteúdos educativos e experiências interativas para promover igualdade, diversidade e cidadania entre alunos, professores e comunidade escolar.</p>
+          <div class="button-row">
+            <a class="button" href="#temas">Explorar conteúdos</a>
+            <a class="button button-secondary" href="quiz.html">Fazer o quiz</a>
+          </div>
+        </div>
+        <div class="cosmos" aria-hidden="true">
+          <span class="orbit-label">5 temas para explorar</span>
+          <svg viewBox="0 0 430 430" fill="none">
+            <circle cx="215" cy="215" r="168" stroke="rgba(108,63,196,.2)" stroke-dasharray="2 12"/>
+            <circle cx="215" cy="215" r="132" stroke="rgba(0,191,166,.3)" stroke-dasharray="5 9"/>
+            <ellipse cx="215" cy="215" rx="184" ry="53" stroke="rgba(58,123,213,.44)" transform="rotate(-18 215 215)"/>
+            <ellipse cx="215" cy="215" rx="145" ry="43" stroke="rgba(255,112,67,.34)" transform="rotate(15 215 215)"/>
+            <circle cx="215" cy="215" r="78" fill="url(#planet)" stroke="rgba(168,123,255,.6)"/>
+            <path d="M163 214c25-26 46-8 65-25 23-20 52 6 61 30-30-16-36 13-67 11-24-2-39-22-59 5-10 0-17-9-20-21Z" fill="rgba(0,191,166,.18)"/>
+            <circle cx="80" cy="162" r="11" fill="#3a7bd5"/><circle cx="350" cy="254" r="15" fill="#00bfa6"/><circle cx="316" cy="104" r="7" fill="#ff7043"/>
+            <defs><radialGradient id="planet" cx="30%" cy="25%" r="85%"><stop stop-color="#ad82ff"/><stop offset=".52" stop-color="#6c3fc4"/><stop offset="1" stop-color="#21143c"/></radialGradient></defs>
+          </svg>
+          <span class="orbit-label">Respeito em órbita</span>
+        </div>
+      </div>
+      <span class="scroll-cue">Rolar</span>
+    </section>
+
+    <!-- Origem -->
+    <section class="section section-alt" id="sobre">
+      <div class="container split">
+        <div class="reveal">
+          <span class="kicker">Sobre o projeto</span>
+          <h2 class="section-heading">Educação que transforma realidades</h2>
+          <p class="section-copy">O UniVerso nasceu no Centro Universitário Católica do Tocantins - UniCatólica, em Palmas - TO, para apoiar conversas sobre preconceito, bullying e cidadania com linguagem acessível e ferramentas digitais.</p>
+          <div class="metrics">
+            <div class="metric"><strong>5</strong><p>temas essenciais</p></div>
+            <div class="metric"><strong>6</strong><p>materiais educativos</p></div>
+            <div class="metric"><strong>3</strong><p>públicos atendidos</p></div>
+          </div>
+        </div>
+        <aside class="quote-panel reveal">
+          <blockquote>Recursos digitais aproximam diálogo, reflexão e atitudes práticas para que a escola cultive respeito todos os dias.</blockquote>
+          <div class="person">
+            <span class="avatar">UV</span>
+            <div><strong>Propósito UniVerso</strong><span>Educação, escuta e cidadania</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Temas -->
+    <section class="section" id="temas">
+      <div class="container center">
+        <span class="kicker">Trilhas de aprendizagem</span>
+        <h2 class="section-heading">Temas que constroem pontes</h2>
+        <p class="section-copy">Cada trilha possui explicações, atitudes práticas e propostas para conversar em sala de aula.</p>
+        <div class="cards">
+          <a class="topic-card reveal" href="temas/igualdade.html"><span class="topic-number">01</span><h3>Igualdade e Respeito</h3><p>Dignidade, empatia e equidade no cotidiano.</p><span class="topic-link">Abrir trilha →</span></a>
+          <a class="topic-card reveal" href="temas/bullying.html"><span class="topic-number">02</span><h3>Combate ao Bullying</h3><p>Reconhecer, prevenir e pedir ajuda.</p><span class="topic-link">Abrir trilha →</span></a>
+          <a class="topic-card reveal" href="temas/diversidade.html"><span class="topic-number">03</span><h3>Diversidade Cultural</h3><p>Valorizar identidades e histórias.</p><span class="topic-link">Abrir trilha →</span></a>
+          <a class="topic-card reveal" href="temas/cidadania.html"><span class="topic-number">04</span><h3>Direitos e Cidadania</h3><p>Participação, proteção e direitos.</p><span class="topic-link">Abrir trilha →</span></a>
+          <a class="topic-card reveal" href="temas/como-agir.html"><span class="topic-number">05</span><h3>Como Agir</h3><p>Ações seguras diante do preconceito.</p><span class="topic-link">Abrir trilha →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biblioteca -->
+    <section class="section section-alt" id="materiais">
+      <div class="container">
+        <div class="filter-row">
+          <div>
+            <span class="kicker">Biblioteca</span>
+            <h2 class="section-heading">Materiais educativos</h2>
+          </div>
+          <div class="pills" role="group" aria-label="Filtrar materiais">
+            <button class="pill active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+            <button class="pill" type="button" data-filter="aluno" aria-pressed="false">Alunos</button>
+            <button class="pill" type="button" data-filter="professor" aria-pressed="false">Professores</button>
+            <button class="pill" type="button" data-filter="familia" aria-pressed="false">Famílias</button>
+          </div>
+        </div>
+        <p class="sr-only" id="filterStatus" aria-live="polite"></p>
+        <div class="resources">
+          <article class="resource reveal" data-category="aluno">
+            <div class="resource-cover"><span>QUIZ</span></div>
+            <div class="resource-body"><span class="tag">Interativo - Alunos</span><h3>Missão Respeito</h3><p>Teste conhecimentos e receba um selo digital ao concluir.</p></div>
+            <div class="resource-action"><a class="button button-secondary button-small" href="quiz.html">Começar</a></div>
+          </article>
+          <article class="resource reveal" data-category="professor">
+            <div class="resource-cover"><span>AULA</span></div>
+            <div class="resource-body"><span class="tag">Plano - Professores</span><h3>Roda da diversidade</h3><p>Sequência didática com objetivos, dinâmica e avaliação.</p></div>
+            <div class="resource-action"><a class="button button-secondary button-small" href="materiais/plano-aula-respeito.html">Abrir plano</a></div>
+          </article>
+          <article class="resource reveal" data-category="aluno familia">
+            <div class="resource-cover"><span>GUIA</span></div>
+            <div class="resource-body"><span class="tag">Orientação</span><h3>O que fazer diante do bullying</h3><p>Orientações seguras e canais de apoio na escola.</p></div>
+            <div class="resource-action"><a class="button button-secondary button-small" href="apoio.html">Consultar</a></div>
+          </article>
+          <article class="resource reveal" data-category="professor">
+            <div class="resource-cover"><span>DADOS</span></div>
+            <div class="resource-body"><span class="tag">Indicadores</span><h3>Painel do projeto</h3><p>Entregas e metas para mobilizar a comunidade escolar.</p></div>
+            <div class="resource-action"><a class="button button-secondary button-small" href="pesquisa.html">Ver painel</a></div>
+          </article>
+          <article class="resource reveal" data-category="familia aluno">
+            <div class="resource-cover"><span>AÇÃO</span></div>
+            <div class="resource-body"><span class="tag">Trilha prática</span><h3>Como agir com respeito</h3><p>Passos para acolher, interromper ofensas e buscar ajuda.</p></div>
+            <div class="resource-action"><a class="button button-secondary button-small" href="temas/como-agir.html">Ler</a></div>
+          </article>
+          <article class="resource reveal" data-category="professor familia">
+            <div class="resource-cover"><span>PACTO</span></div>
+            <div class="resource-body"><span class="tag">Comunidade</span><h3>Mural de compromissos</h3><p>Envie uma atitude positiva para publicação moderada.</p></div>
+            <div class="resource-action"><a class="button button-secondary button-small" href="#mural">Participar</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Convites -->
+    <section class="section" id="professores">
+      <div class="container">
+        <div class="center">
+          <span class="kicker">Para professores</span>
+          <h2 class="section-heading">Ferramentas para levar o tema à aula</h2>
+          <p class="section-copy">Planos de aula, debates guiados, atividades imprimíveis e apoio para projetos de convivência.</p>
+        </div>
+        <div class="feature-band reveal">
+          <div><h3>Kit pedagógico UniVerso</h3><p>Comece com um roteiro de 50 minutos e adapte para a sua turma.</p></div>
+          <a class="button" href="professores.html">Abrir área do professor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Públicos -->
+    <section class="section section-alt" id="depoimentos">
+      <div class="container center">
+        <span class="kicker">Experiências planejadas</span>
+        <h2 class="section-heading">Um caminho para cada público</h2>
+        <div class="testimonials reveal" data-slider>
+          <article class="testimonial" data-slide>
+            <blockquote>Aprender com linguagem direta, situações do cotidiano e um quiz que ajuda a escolher atitudes respeitosas.</blockquote>
+            <div class="person"><span class="avatar">AL</span><div><strong>Alunos</strong><span>Trilhas e desafios interativos</span></div></div>
+          </article>
+          <article class="testimonial" data-slide hidden>
+            <blockquote>Conduzir debates com um plano de aula pronto, materiais organizados e orientações para acolhimento.</blockquote>
+            <div class="person"><span class="avatar">PR</span><div><strong>Professores</strong><span>Planejamento e mediação</span></div></div>
+          </article>
+          <article class="testimonial" data-slide hidden>
+            <blockquote>Encontrar orientações claras para apoiar estudantes e fortalecer a parceria entre família e escola.</blockquote>
+            <div class="person"><span class="avatar">CO</span><div><strong>Comunidade</strong><span>Apoio e participação</span></div></div>
+          </article>
+          <div class="slider-controls">
+            <button class="slider-arrow" type="button" data-prev aria-label="Experiência anterior">←</button>
+            <div class="slider-dots">
+              <button class="slider-dot active" type="button" data-dot="0" aria-label="Experiência para alunos" aria-pressed="true"></button>
+              <button class="slider-dot" type="button" data-dot="1" aria-label="Experiência para professores" aria-pressed="false"></button>
+              <button class="slider-dot" type="button" data-dot="2" aria-label="Experiência para a comunidade" aria-pressed="false"></button>
+            </div>
+            <button class="slider-arrow" type="button" data-next aria-label="Próxima experiência">→</button>
+          </div>
+          <p class="sr-only" data-slider-status aria-live="polite">Experiência 1 de 3</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mural com Supabase -->
+    <section class="section" id="mural">
+      <div class="container two-columns">
+        <div>
+          <span class="kicker">Mural moderado</span>
+          <h2 class="section-heading">Compromissos pelo respeito</h2>
+          <p class="section-copy">Compartilhe uma atitude positiva. As mensagens passam por revisão antes de aparecerem publicamente.</p>
+          <div class="commitment-list" id="commitmentList" aria-live="polite">
+            <div class="commitment"><p>"Escutar com atenção e respeitar as diferenças fortalece nossa escola."</p><span>Pacto UniVerso</span></div>
+            <div class="commitment"><p>"Diante de uma ofensa, acolher e procurar ajuda é uma escolha responsável."</p><span>Pacto UniVerso</span></div>
+          </div>
+        </div>
+        <form class="form-card" id="commitmentForm" novalidate>
+          <h3>Deixe seu compromisso</h3>
+          <p>Use apenas seu primeiro nome e não inclua relatos pessoais ou nomes de terceiros.</p>
+          <div class="form-grid">
+            <div class="field field-full">
+              <label for="commitmentName">Primeiro nome</label>
+              <input id="commitmentName" name="name" maxlength="40" required placeholder="Ex.: Ana">
+              <span class="field-error" data-error-for="commitmentName"></span>
+            </div>
+            <div class="field field-full">
+              <label for="commitmentText">Meu compromisso</label>
+              <textarea id="commitmentText" name="message" maxlength="180" minlength="10" required placeholder="Eu me comprometo a..."></textarea>
+              <span class="field-error" data-error-for="commitmentText"></span>
+            </div>
+            <label class="honeypot" aria-hidden="true">Não preencher <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <button class="button" type="submit">Enviar para moderação</button>
+          <p class="form-status" id="commitmentStatus" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section section-alt" id="contato">
+      <div class="container two-columns">
+        <div>
+          <span class="kicker">Contato</span>
+          <h2 class="section-heading">Faça parte dessa mudança</h2>
+          <p class="section-copy">Quer usar o projeto em sua turma ou sugerir uma atividade? Envie uma mensagem para a equipe escolar.</p>
+          <p style="margin-top:1.4rem"><a href="apoio.html" style="color:var(--teal)">Precisa de orientação sobre bullying ou preconceito? Veja os caminhos de apoio →</a></p>
+        </div>
+        <form class="form-card" id="contactForm" novalidate>
+          <h3>Fale com o projeto</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label for="contactName">Nome</label>
+              <input id="contactName" name="name" autocomplete="name" required minlength="3">
+              <span class="field-error" data-error-for="contactName"></span>
+            </div>
+            <div class="field">
+              <label for="contactEmail">E-mail</label>
+              <input id="contactEmail" type="email" name="email" autocomplete="email" required>
+              <span class="field-error" data-error-for="contactEmail"></span>
+            </div>
+            <div class="field field-full">
+              <label for="contactSchool">Escola / instituição</label>
+              <input id="contactSchool" name="school" autocomplete="organization">
+            </div>
+            <div class="field field-full">
+              <label for="contactMessage">Mensagem</label>
+              <textarea id="contactMessage" name="message" required minlength="10"></textarea>
+              <span class="field-error" data-error-for="contactMessage"></span>
+            </div>
+            <label class="honeypot" aria-hidden="true">Não preencher <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <button class="button" type="submit">Enviar mensagem</button>
+          <p class="form-status" id="contactStatus" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" fill="#fff"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#fff" stroke-width="1.25" transform="rotate(-22 12 12)"/></svg></span><span>Uni<span>Verso</span></span></a>
+          <p>Plataforma educativa de promoção da igualdade e combate ao preconceito.</p>
+        </div>
+        <div class="footer-col"><h3>Aprender</h3><ul><li><a href="quiz.html">Quiz</a></li><li><a href="temas/igualdade.html">Trilhas</a></li><li><a href="apoio.html">Apoio</a></li></ul></div>
+        <div class="footer-col"><h3>Participação</h3><ul><li><a href="professores.html">Professores</a></li><li><a href="pesquisa.html">Indicadores</a></li><li><a href="#contato">Contato</a></li></ul></div>
+        <div class="footer-col"><h3>Projeto</h3><ul><li>Centro Universitário Católica do Tocantins - UniCatólica</li><li>Palmas - Tocantins</li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> UniVerso - Projeto educacional</span><span>Promoção da Igualdade e Combate ao Preconceito</span></div>
+    </div>
+  </footer>
+</body>
+</html>

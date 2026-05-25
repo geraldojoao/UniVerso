@@ -1,0 +1,20 @@
+{
+  "name": "universo-respeito",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Plataforma educativa UniVerso para promoção da igualdade e combate ao preconceito.",
+  "scripts": {
+    "dev": "vercel dev",
+    "check": "node tests/smoke.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.2"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.52.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
