@@ -1,218 +1,268 @@
 <div align="center">
 
-# UniVerso
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6c3fc4,50:3a7bd5,100:00bfa6&height=160&section=header&text=UniVerso&fontSize=52&fontColor=ffffff&fontAlignY=55" width="100%" />
 
-Plataforma educativa para promoção da igualdade e combate ao preconceito
+<h3>Plataforma educativa para promoção da igualdade e combate ao preconceito</h3>
 
-**Centro Universitário Católica do Tocantins — UniCatólica · Palmas, TO**
+<p><strong>Centro Universitário Católica do Tocantins — UniCatólica · Palmas, TO</strong></p>
+
+<p>
+  <a href="https://universo-respeito.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Ver_ao_vivo-universo--respeito.vercel.app-6c3fc4?style=for-the-badge" />
+  </a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Deploy-Vercel-000000?style=flat-square&logo=vercel" />
+  <img src="https://img.shields.io/badge/Database-Supabase_PostgreSQL-3ECF8E?style=flat-square&logo=supabase" />
+  <img src="https://img.shields.io/badge/Tests-Playwright_E2E-45ba4b?style=flat-square&logo=playwright" />
+  <img src="https://img.shields.io/badge/Security-CSP_%2B_RLS-e11d48?style=flat-square" />
+  <img src="https://img.shields.io/badge/A11y-WCAG_/_ARIA-6c3fc4?style=flat-square" />
+  <img src="https://img.shields.io/badge/Frontend-Zero_Dependencies-00bfa6?style=flat-square" />
+  <img src="https://img.shields.io/badge/License-MIT-3a7bd5?style=flat-square" />
+</p>
 
 </div>
 
 ---
 
-## Visão Geral
+## ✨ Visão Geral
 
-O **UniVerso** é uma plataforma web desenvolvida pela UniCatólica com foco em educação, diversidade e combate ao preconceito. Oferece conteúdo temático estruturado, quiz interativo, recursos pedagógicos para docentes e um mural de compromissos com moderação manual.
+O **UniVerso** é uma plataforma web educacional fullstack desenvolvida para apoiar conversas sobre preconceito, bullying, diversidade e cidadania em ambiente escolar. Atende alunos, professores e famílias com trilhas temáticas, quiz interativo, plano de aula imprimível e mural de compromissos com moderação.
 
-O projeto utiliza HTML, CSS e JavaScript puros no frontend, Vercel Functions como camada serverless e Supabase (PostgreSQL + RLS) como banco de dados.
+**Stack:** HTML5 · CSS3 · JavaScript (ESM) · Vercel Functions (Node.js) · Supabase (PostgreSQL + RLS)
 
-**Produção:** [universo-respeito.vercel.app](https://universo-respeito.vercel.app)
-
----
-
-## Sumário
-
-- [Funcionalidades](#funcionalidades)
-- [Arquitetura](#arquitetura)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação e desenvolvimento local](#instalação-e-desenvolvimento-local)
-- [Configuração do Supabase](#configuração-do-supabase)
-- [Deploy na Vercel](#deploy-na-vercel)
-- [Moderação do mural](#moderação-do-mural)
-- [Testes](#testes)
-- [Segurança e privacidade](#segurança-e-privacidade)
-- [Contribuindo](#contribuindo)
+> 🔗 **Demo ao vivo:** [universo-respeito.vercel.app](https://universo-respeito.vercel.app)
 
 ---
 
-## Funcionalidades
-
-| Módulo | Arquivo | Descrição |
-|---|---|---|
-| Página inicial | `index.html` | Biblioteca de materiais, experiências por público, mural e formulário de contato |
-| Trilhas temáticas | `temas/` | Cinco trilhas educativas sobre igualdade e diversidade |
-| Quiz | `quiz.html` | Quiz interativo com progresso salvo no navegador e selo imprimível |
-| Área do professor | `professores.html` | Materiais didáticos e plano de aula imprimível |
-| Pesquisa | `pesquisa.html` | Busca de conteúdos e materiais |
-| Apoio | `apoio.html` | Orientação segura para situações de bullying e preconceito |
-| API | `api/` | Endpoints serverless para contato e compromissos integrados ao Supabase |
-
----
-
-## Arquitetura
+## 🏗️ Arquitetura
 
 ```
-UniVerso/
-├── api/                        # Vercel Functions (serverless)
-├── assets/                     # Arquivos estáticos (imagens, fontes, ícones)
-├── lib/                        # Utilitários e helpers JavaScript compartilhados
-├── materiais/                  # Materiais educativos para download
-├── temas/                      # Trilhas temáticas (5 módulos)
+universo-respeito/
+├── api/                          # Vercel Functions (serverless)
+│   ├── commitments.js            # GET aprovados + POST moderado
+│   └── contact.js                # POST com validação dupla (client + server)
+│
+├── assets/
+│   ├── css/styles.css            # Design system completo (700+ linhas, zero framework)
+│   └── js/
+│       ├── main.js               # Nav, reveal animations, slider, filtros, formulários
+│       ├── quiz.js               # Engine do quiz com estado e localStorage
+│       └── commitments.js        # Fetch + render do mural moderado
+│
+├── temas/                        # 5 trilhas educativas (HTML semântico)
+│   ├── igualdade.html
+│   ├── bullying.html
+│   ├── diversidade.html
+│   ├── cidadania.html
+│   └── como-agir.html
+│
+├── materiais/
+│   └── plano-aula-respeito.html  # Plano imprimível com @media print
+│
+├── lib/
+│   └── supabase-server.js        # Client singleton + helpers tipados
+│
+├── supabase/migrations/
+│   └── 001_initial_schema.sql    # Schema + RLS policies completas
+│
 ├── tests/
-│   └── smoke.mjs               # Suite de testes (Playwright Core)
-├── supabase/
-│   └── migrations/
-│       └── 001_initial_schema.sql
-├── index.html
-├── apoio.html
-├── pesquisa.html
-├── professores.html
-├── quiz.html
-├── vercel.json                 # Configuração de rotas e rewrite rules
-├── package.json
-└── .env.example
+│   └── smoke.mjs                 # E2E Playwright: desktop + mobile + API
+│
+├── index.html                    # SPA-like: hero, trilhas, biblioteca, mural, contato
+├── quiz.html                     # Quiz interativo com selo imprimível
+├── professores.html              # Área pedagógica
+├── pesquisa.html                 # Painel de indicadores
+├── apoio.html                    # Orientação anti-bullying
+└── vercel.json                   # Rotas, headers de segurança, cache
 ```
 
-**Stack:**
+**Fluxo de dados**
 
-| Camada | Tecnologia |
+```
+Browser ──── GET /api/commitments ──▶ Vercel Function
+                                           │
+                                     Supabase RLS
+                                     (apenas approved)
+                                           │
+                                      PostgreSQL
+                                           │
+                                    ◀─── JSON ────
+```
+
+---
+
+## 🔒 Segurança & Privacidade
+
+Este projeto implementa múltiplas camadas de defesa:
+
+| Camada | Implementação | Onde |
+|---|---|---|
+| **Content-Security-Policy** | `default-src 'self'` — bloqueia XSS e injeção de recursos externos | `vercel.json` |
+| **Row Level Security (RLS)** | Políticas explícitas por operação; `service_role` nunca exposta no cliente | `001_initial_schema.sql` |
+| **Honeypot anti-spam** | Campo invisível `website` — bots que preenchem recebem `201 OK` sem gravação | `commitments.js`, `contact.js` |
+| **Validação dupla** | Client-side (UX) + Server-side (segurança) com regex e limites de tamanho | `main.js` + `api/*.js` |
+| **Payload limit** | `content-length > 10 000` rejeitado antes do parse | `supabase-server.js` |
+| **Referrer-Policy** | `strict-origin-when-cross-origin` | `vercel.json` |
+| **Permissions-Policy** | Camera, mic e geolocation bloqueados | `vercel.json` |
+| **Cache imutável** | Assets com hash servidos com `max-age=31536000, immutable` | `vercel.json` |
+
+---
+
+## ♿ Acessibilidade (WCAG / ARIA)
+
+| Recurso | Implementação |
 |---|---|
-| Frontend | HTML5 · CSS3 · JavaScript (ESM) |
-| Serverless | Vercel Functions |
-| Banco de dados | Supabase (PostgreSQL) com Row Level Security |
-| Testes | Playwright Core |
-| Infraestrutura | Vercel (CDN + Functions) |
+| Skip link | `#conteudo` — primeiro elemento focável da página |
+| Focus trap | Menu mobile: Tab/Shift+Tab circula apenas entre os itens do menu |
+| `aria-hidden` | Menu mobile oculto para leitores de tela quando fechado |
+| `aria-expanded` | Botão do menu anuncia estado ao screen reader |
+| `aria-live="polite"` | Status de filtros e slider anunciado dinamicamente |
+| `aria-current` | Seção ativa na nav atualizada por `IntersectionObserver` |
+| `aria-invalid` | Campos com erro marcados semanticamente |
+| `prefers-reduced-motion` | Todas as animações desativadas via media query |
+| Contraste | Paleta projetada para contraste mínimo WCAG AA |
 
 ---
 
-## Pré-requisitos
+## ⚡ Performance & Qualidade
 
-- [Node.js](https://nodejs.org/) `>= 24.x`
-- [Vercel CLI](https://vercel.com/docs/cli) — `npm i -g vercel`
-- Conta na [Vercel](https://vercel.com) e no [Supabase](https://supabase.com) (necessárias apenas para deploy completo)
+- **Zero frameworks de frontend** — sem React, Vue ou jQuery; bundle de JS < 15 KB total
+- **CSS puro com design system** — custom properties, `clamp()` para tipografia fluida, sem `!important`
+- **Fontes com `preconnect`** — tempo de conexão ao Google Fonts reduzido
+- **Assets imutáveis** — 1 ano de cache para CSS/JS versionados
+- **IntersectionObserver** para animações e navegação ativa — sem scroll listeners síncronos
+- **`passive: true`** no listener de scroll do header
+- **`replaceChildren()`** em vez de `innerHTML` — sem serialização de HTML
 
 ---
 
-## Instalação e desenvolvimento local
+## 🧪 Testes
 
 ```bash
-# Clone o repositório
-git clone https://github.com/geraldojoao/UniVerso.git
-cd UniVerso
-
-# Instale as dependências
-npm install
-
-# Copie e preencha as variáveis de ambiente (opcional)
-cp .env.example .env
-
-# Inicie o servidor local via Vercel CLI
-npm run dev
+npm run check   # Executa smoke.mjs via Playwright Core
 ```
 
-> **Sem variáveis do Supabase**, o frontend e o quiz funcionam normalmente. Os formulários exibirão uma mensagem informando que o banco ainda não foi configurado.
+O suite de testes cobre:
 
----
-
-## Configuração do Supabase
-
-### 1. Executar a migração
-
-No painel do Supabase, acesse **SQL Editor** e execute:
-
-```
-supabase/migrations/001_initial_schema.sql
-```
-
-### 2. Definir variáveis de ambiente
-
-```env
-SUPABASE_URL=https://<project-ref>.supabase.co
-SUPABASE_PUBLISHABLE_KEY=<sua-chave-anon-publica>
-```
-
-Configure essas variáveis localmente no `.env` e na Vercel em **Settings → Environment Variables**.
-
-### Política de acesso (RLS)
-
-| Operação | Permissão pública |
+| Cenário | Tipo |
 |---|---|
-| Enviar mensagem de contato | ✅ Permitido |
-| Enviar compromisso | ✅ Permitido (entra como `pending`) |
-| Ler compromissos aprovados | ✅ Permitido |
-| Ler mensagens de contato | ❌ Bloqueado |
+| Carregamento de 11 páginas (desktop + mobile) | E2E |
+| Menu mobile: abertura, fechamento por Escape, focus trap | Interação |
+| Filtros de biblioteca por categoria | Interação |
+| Slider de depoimentos (navegação por dots e setas) | Interação |
+| Submissão do formulário de compromisso | Integração |
+| Submissão do formulário de contato | Integração |
+| Fluxo completo do quiz (6 questões → resultado → localStorage) | E2E |
+| `POST /api/contact` com dados inválidos → `400` | API |
+| `POST /api/commitments` sem banco → `503` | API |
+| `GET /api/commitments` sem banco → `503` | API |
+| Zero erros de JavaScript no console | Smoke |
 
 ---
 
-## Deploy na Vercel
+## 🗄️ Banco de Dados
 
-```bash
-# Primeiro deploy — vincula o projeto à sua conta
-npx vercel
+**Política de acesso (Row Level Security)**
 
-# Adicionar variáveis de ambiente
-npx vercel env add SUPABASE_URL
-npx vercel env add SUPABASE_PUBLISHABLE_KEY
+| Operação | Role pública (`anon`) |
+|---|---|
+| `INSERT` em `contact_messages` | ✅ Permitido |
+| `SELECT` em `contact_messages` | ❌ Bloqueado |
+| `INSERT` em `commitments` (status `pending`) | ✅ Permitido |
+| `SELECT` em `commitments` (status `approved`) | ✅ Permitido |
+| Qualquer escrita com `approved_at` preenchido | ❌ Bloqueado via `WITH CHECK` |
 
-# Promover para produção
-npx vercel --prod
-```
-
-Alternativamente, conecte o repositório diretamente pelo painel da Vercel em **Add New Project → Import Git Repository**.
-
----
-
-## Moderação do mural
-
-Compromissos enviados ficam com `status = 'pending'` até serem revisados manualmente. Para aprovar um item, execute no **SQL Editor** do Supabase:
+**Schema simplificado**
 
 ```sql
+contact_messages (id, name, email, school, message, source, created_at, handled_at)
+commitments      (id, name, message, status ∈ {pending,approved,rejected}, created_at, approved_at)
+```
+
+---
+
+## 🚀 Rodando localmente
+
+```bash
+# 1. Clone e instale
+git clone https://github.com/geraldojoao/UniVerso.git
+cd UniVerso && npm install
+
+# 2. Configure variáveis (opcional — o frontend funciona sem o banco)
+cp .env.example .env
+# Preencha SUPABASE_URL e SUPABASE_PUBLISHABLE_KEY
+
+# 3. Inicie o servidor
+npm run dev   # http://localhost:3000
+```
+
+> **Sem Supabase:** quiz, trilhas e navegação funcionam normalmente. Formulários exibem mensagem de configuração pendente.
+
+---
+
+## ☁️ Deploy
+
+```bash
+npx vercel                            # Primeiro deploy + vinculação
+npx vercel env add SUPABASE_URL
+npx vercel env add SUPABASE_PUBLISHABLE_KEY
+npx vercel --prod                     # Promoção para produção
+```
+
+Ou conecte diretamente o repositório pelo painel Vercel em **New Project → Import Git Repository**.
+
+---
+
+## 📋 Moderação do mural
+
+```sql
+-- Aprovar um compromisso pendente no SQL Editor do Supabase:
 UPDATE public.commitments
 SET    status      = 'approved',
        approved_at = now()
-WHERE  id = '<uuid-do-compromisso>';
+WHERE  id = '<uuid>';
 ```
 
-Mensagens de contato ficam em `public.contact_messages` e nunca são expostas publicamente via RLS.
+---
+
+## 📦 Dependências
+
+| Pacote | Versão | Uso |
+|---|---|---|
+| `@supabase/supabase-js` | `^2.106.2` | Client do banco (server-side only) |
+| `playwright-core` | `^1.52.0` | Testes E2E (dev) |
+
+**Dependências de frontend: zero.**
 
 ---
 
-## Testes
+## 🤝 Contribuindo
 
-```bash
-npm run check
-```
+1. Fork o repositório
+2. Crie uma branch: `git checkout -b feat/sua-feature`
+3. Commite seguindo [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/): `feat:`, `fix:`, `docs:`, `refactor:`
+4. Abra um Pull Request descrevendo o problema resolvido
 
-O script `tests/smoke.mjs` verifica com Playwright Core:
-
-- Carregamento das páginas principais em viewport desktop e mobile
-- Funcionamento do menu de navegação
-- Filtros, slider e componentes interativos
-- Submissão dos formulários
-- Fluxo completo do quiz
-- Validação básica dos endpoints da API
+Consulte [CONTRIBUTING.md](.github/CONTRIBUTING.md) para o guia completo.
 
 ---
 
-## Segurança e privacidade
+## 🗺️ Roadmap
 
-A plataforma **não deve ser utilizada para receber relatos sensíveis em ambiente público**. Para situações reais de violência ou discriminação, a página [`apoio.html`](apoio.html) orienta sobre canais institucionais adequados e contatos de confiança.
-
-A integração com o Supabase utiliza exclusivamente a **chave anon (publicável)**, protegida por Row Level Security. Nenhuma chave de serviço (`service_role`) é exposta no cliente.
-
----
-
-## Contribuindo
-
-1. Faça um fork do repositório
-2. Crie uma branch descritiva: `git checkout -b feat/nome-da-feature`
-3. Realize os commits seguindo [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/): `git commit -m "feat: descrição da mudança"`
-4. Abra um Pull Request detalhando as alterações realizadas
+- [ ] CI/CD com GitHub Actions (lint + smoke test automático em PRs)
+- [ ] Migração para TypeScript
+- [ ] Dashboard de moderação autenticado (Supabase Auth)
+- [ ] Painel de métricas de engajamento (quizzes concluídos, mural ativo)
+- [ ] i18n básico (pt-BR / en)
 
 ---
 
 <div align="center">
 
-Desenvolvido pela equipe UniVerso · **UniCatólica — Palmas, TO**
+Desenvolvido por **Geraldo João** · UniCatólica — Palmas, TO
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00bfa6,100:6c3fc4&height=80&section=footer" width="100%" />
 
 </div>
