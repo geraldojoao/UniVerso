@@ -262,7 +262,7 @@ Consulte [CONTRIBUTING.md](.github/CONTRIBUTING.md) para o guia completo.
 
 <div align="center">
 
-Desenvolvido por **Geraldo João** · UniCatólica — Palmas, TO
+Desenvolvido por **Geraldo João** · Palmas — TO
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00bfa6,100:6c3fc4&height=80&section=footer" width="100%" />
 
