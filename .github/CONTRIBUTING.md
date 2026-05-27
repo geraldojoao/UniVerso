@@ -47,8 +47,8 @@ cd UniVerso
 # 2. Configure o upstream
 git remote add upstream https://github.com/geraldojoao/UniVerso.git
 
-# 3. Crie uma branch descritiva a partir de master
-git checkout master
+# 3. Crie uma branch descritiva a partir de main
+git checkout main
 git checkout -b feat/nome-da-feature
 # ou
 git checkout -b fix/descricao-do-bug

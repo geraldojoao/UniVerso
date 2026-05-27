@@ -14,7 +14,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/Deploy-Vercel-000000?style=flat-square&logo=vercel" />
-  <a href="https://github.com/geraldojoao/UniVerso/actions/workflows/ci.yml"><img src="https://github.com/geraldojoao/UniVerso/actions/workflows/ci.yml/badge.svg?branch=master" alt="CI status" /></a>
+  <a href="https://github.com/geraldojoao/UniVerso/actions/workflows/ci.yml"><img src="https://github.com/geraldojoao/UniVerso/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status" /></a>
   <img src="https://img.shields.io/badge/Database-Supabase_PostgreSQL-3ECF8E?style=flat-square&logo=supabase" />
   <img src="https://img.shields.io/badge/Tests-Playwright_E2E-45ba4b?style=flat-square&logo=playwright" />
   <img src="https://img.shields.io/badge/Security-CSP_%2B_RLS-e11d48?style=flat-square" />
