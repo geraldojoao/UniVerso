@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Validação estrutural
+  lint-html:
+    name: Lint HTML
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Validar HTML
+        run: npm run lint:html
+
+  # Testes de fumaça (E2E)
+  smoke:
+    name: Smoke Tests (Playwright)
+    runs-on: ubuntu-latest
+    needs: lint-html
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Instalar Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Rodar smoke tests
+        run: npm run check
+        env:
+          CI: "true"
+          SUPABASE_URL: ""
+          SUPABASE_PUBLISHABLE_KEY: ""
+
+      - name: Upload de screenshots em caso de falha
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-screenshots
+          path: screenshots/
+          retention-days: 7
+
+  # Auditoria de segurança
+  audit:
+    name: Auditoria de dependências
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: npm audit (alto e crítico)
+        run: npm audit --audit-level=high
+
+  # Resumo do pipeline
+  summary:
+    name: Pipeline OK
+    runs-on: ubuntu-latest
+    needs: [lint-html, smoke, audit]
+    if: always()
+    steps:
+      - name: Verificar resultados
+        run: |
+          if [[ "${{ needs.lint-html.result }}" != "success" || \
+                "${{ needs.smoke.result }}" != "success" || \
+                "${{ needs.audit.result }}" != "success" ]]; then
+            echo "Pipeline falhou. Verifique os jobs acima."
+            exit 1
+          fi
+          echo "Todos os checks passaram."

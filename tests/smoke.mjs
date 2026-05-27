@@ -2,11 +2,12 @@ import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 import { GET as getCommitments, POST as postCommitment } from "../api/commitments.js";
 import { POST as postContact } from "../api/contact.js";
 
-const root = new URL("../", import.meta.url).pathname.slice(1).replaceAll("%20", " ");
+const root = fileURLToPath(new URL("../", import.meta.url));
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -40,8 +41,14 @@ const server = createServer(async (request, response) => {
 
 await new Promise((resolve) => server.listen(4178, "127.0.0.1", resolve));
 const base = "http://127.0.0.1:4178";
-const executablePath = "C:/Program Files/Google/Chrome/Application/chrome.exe";
-const browser = await chromium.launch({ headless: true, executablePath });
+const localChrome = process.platform === "win32"
+  ? "C:/Program Files/Google/Chrome/Application/chrome.exe"
+  : undefined;
+const executablePath = process.env.PLAYWRIGHT_EXECUTABLE_PATH || (process.env.CI ? undefined : localChrome);
+const browser = await chromium.launch({
+  headless: true,
+  ...(executablePath ? { executablePath } : {})
+});
 
 try {
   const pageErrors = [];

@@ -6,12 +6,14 @@
   "description": "Plataforma educativa UniVerso para promoção da igualdade e combate ao preconceito.",
   "scripts": {
     "dev": "vercel dev",
+    "lint:html": "html-validate \"*.html\" \"temas/*.html\" \"materiais/*.html\" --rule no-missing-references:off",
     "check": "node tests/smoke.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2"
   },
   "devDependencies": {
+    "html-validate": "^11.4.0",
     "playwright-core": "^1.52.0"
   },
   "engines": {

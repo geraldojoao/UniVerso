@@ -14,6 +14,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/Deploy-Vercel-000000?style=flat-square&logo=vercel" />
+  <a href="https://github.com/geraldojoao/UniVerso/actions/workflows/ci.yml"><img src="https://github.com/geraldojoao/UniVerso/actions/workflows/ci.yml/badge.svg?branch=master" alt="CI status" /></a>
   <img src="https://img.shields.io/badge/Database-Supabase_PostgreSQL-3ECF8E?style=flat-square&logo=supabase" />
   <img src="https://img.shields.io/badge/Tests-Playwright_E2E-45ba4b?style=flat-square&logo=playwright" />
   <img src="https://img.shields.io/badge/Security-CSP_%2B_RLS-e11d48?style=flat-square" />
@@ -151,7 +152,7 @@ O suite de testes cobre:
 | Carregamento de 11 páginas (desktop + mobile) | E2E |
 | Menu mobile: abertura, fechamento por Escape, focus trap | Interação |
 | Filtros de biblioteca por categoria | Interação |
-| Slider de depoimentos (navegação por dots e setas) | Interação |
+| Slider de experiências por público (navegação por dots e setas) | Interação |
 | Submissão do formulário de compromisso | Integração |
 | Submissão do formulário de contato | Integração |
 | Fluxo completo do quiz (6 questões → resultado → localStorage) | E2E |
@@ -251,7 +252,7 @@ Consulte [CONTRIBUTING.md](.github/CONTRIBUTING.md) para o guia completo.
 
 ## 🗺️ Roadmap
 
-- [ ] CI/CD com GitHub Actions (lint + smoke test automático em PRs)
+- [x] CI/CD com GitHub Actions (lint + smoke test automático em PRs)
 - [ ] Migração para TypeScript
 - [ ] Dashboard de moderação autenticado (Supabase Auth)
 - [ ] Painel de métricas de engajamento (quizzes concluídos, mural ativo)
